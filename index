@@ -94,7 +94,7 @@
       };
 
       // Отправка данных на сервер
-      fetch('https://script.google.com/macros/s/1ycUnqKHp61wmyk1e4KH5y4dMJT_FSzUE9tkJuCL6huA/exec', {
+      fetch('https://script.google.com/macros/s/AKfycbwS0q1XyQv5ajp3-Wcf4hjWg35L4TNpiAr9JpYkgFb9VXxLaBHt73Xq2wpr4UBtIUP0bQ/exec', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
