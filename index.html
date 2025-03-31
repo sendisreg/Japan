@@ -9,7 +9,7 @@
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background: url('https://avatars.mds.yandex.net/i?id=428ab7264aa91f75cc6f5f9d281dcf8c_l-5253166-images-thumbs&n=13') no-repeat center center fixed; /* Фон с сакурой */
+      background: url('https://wallpaperaccess.com/full/139778.jpg') no-repeat center center fixed; /* Фон с сакурой */
       background-size: cover;
       color: #333;
       display: flex;
@@ -93,8 +93,7 @@
         timestamp: new Date().toLocaleString()
       };
 
-      // Отправка данных на сервер
-      fetch('https://script.google.com/macros/s/AKfycbxz9AH1MHTKN7zgcI4qQVADlsONbm0yp5qWiBRxmMHw1T9xFNeZhe21YMOEJijZNhdr/exec', {
+      fetch('https://script.google.com/macros/s/AKfycby2nVABYzNSD3jFja4gPqnwtbOir056_sZVQ3msQ9R6z77rR0JNnNqW_dcFgZ-L4tV4Sg/exec', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -103,8 +102,12 @@
       })
       .then(response => response.json())
       .then(data => {
-        alert('Ваша заявка успешно отправлена!');
-        document.getElementById('registrationForm').reset();
+        if (data.success) {
+          alert('Ваша заявка успешно отправлена!');
+          document.getElementById('registrationForm').reset();
+        } else {
+          alert(`Произошла ошибка: ${data.error}`);
+        }
       })
       .catch(error => {
         console.error('Ошибка:', error);
