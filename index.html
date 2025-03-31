@@ -1,119 +1,118 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Регистрация</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: url('https://wallpaperaccess.com/full/139778.jpg') no-repeat center center fixed; /* Фон с сакурой */
-      background-size: cover;
-      color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .container {
-      background: rgba(255, 255, 255, 0.8);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      width: 100%;
-      max-width: 400px;
-      text-align: center;
-    }
-    h1 {
-      font-size: 24px;
-      font-weight: bold;
-      color: #d32f2f;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-size: 18px;
-      color: #555;
-      margin-bottom: 20px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-    input, button {
-      margin-bottom: 10px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      background-color: #d32f2f;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #b71c1c;
-    }
-    .footer {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #555;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: url('https://i.pinimg.com/originals/fa/d8/6a/fad86a53010577780e9b76f1590a40f6.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #d81b60;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        h2 {
+            font-size: 1.5em;
+            font-weight: 400;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        input {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        button {
+            background: #d81b60;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        button:hover {
+            background: #b71c1c;
+        }
+        .footer-text {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Готовы к незабываемому путешествию?</h1>
-    <h2>Регистрация</h2>
-    <form id="registrationForm">
-      <input type="text" id="name" placeholder="ФИО" required>
-      <input type="text" id="company" placeholder="Компания" required>
-      <input type="text" id="city" placeholder="Город" required>
-      <input type="tel" id="phone" placeholder="Телефон" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <button type="submit">ЗА БИЛЕТОМ В ЯПОНИЮ</button>
-    </form>
-    <div class="footer">
-      Мы свяжемся с вами, чтобы обсудить детали – никаких случайных звонков, только важное.
+    <div class="container">
+        <h1>Готовы к незабываемому путешествию?</h1>
+        <h2>Регистрация</h2>
+        <form id="regForm">
+            <input type="text" name="fio" placeholder="ФИО" required>
+            <input type="text" name="company" placeholder="Компания" required>
+            <input type="text" name="city" placeholder="Город" required>
+            <input type="tel" name="phone" placeholder="Телефон" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <button type="submit">За билетом в Японию</button>
+        </form>
+        <p class="footer-text">Мы свяжемся с вами, чтобы обсудить детали –<br> никаких случайных звонков, только важное.</p>
     </div>
-  </div>
 
-  <script>
-    document.getElementById('registrationForm').addEventListener('submit', function(event) {
-      event.preventDefault();
+    <script>
+        document.getElementById('regForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const data = {
+                fio: formData.get('fio'),
+                company: formData.get('company'),
+                city: formData.get('city'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                timestamp: new Date().toLocaleString('ru-RU')
+            };
 
-      const formData = {
-        name: document.getElementById('name').value,
-        company: document.getElementById('company').value,
-        city: document.getElementById('city').value,
-        phone: document.getElementById('phone').value,
-        email: document.getElementById('email').value,
-        timestamp: new Date().toLocaleString()
-      };
-
-      fetch('https://script.google.com/macros/s/AKfycby2nVABYzNSD3jFja4gPqnwtbOir056_sZVQ3msQ9R6z77rR0JNnNqW_dcFgZ-L4tV4Sg/exec', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          alert('Ваша заявка успешно отправлена!');
-          document.getElementById('registrationForm').reset();
-        } else {
-          alert(`Произошла ошибка: ${data.error}`);
-        }
-      })
-      .catch(error => {
-        console.error('Ошибка:', error);
-        alert('Произошла ошибка при отправке данных.');
-      });
-    });
-  </script>
+            fetch('https://script.google.com/macros/s/AKfycbz-JYhu3-It5KvSmgUqzuJn00AOo2rCWDoh5UcY2FPy4oJOlF9ZeThORQ1pWe45UBot9g/exec', {
+                method: 'POST',
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    alert('Данные успешно отправлены!');
+                } else {
+                    alert('Произошла ошибка, попробуйте снова.');
+                }
+            })
+            .catch(error => console.error('Ошибка:', error));
+        });
+    </script>
 </body>
 </html>
